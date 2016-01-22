@@ -7,10 +7,18 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity {
 
+    final String flickrAPIEndPoint = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        FlickrData flickrData = new FlickrData(flickrAPIEndPoint);
+        flickrData.ConnectAndDownloadData();
+
     }
 
     @Override
