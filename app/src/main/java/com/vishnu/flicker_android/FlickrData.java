@@ -22,7 +22,7 @@ public class FlickrData {
 
     private final String TAG = getClass().getSimpleName();
     private String mUrl;
-    private String mData;
+    private String jsonData;
     private DownloadStatus mDownloadStatus;
 
     public FlickrData(String url) {
@@ -33,11 +33,11 @@ public class FlickrData {
     public void reset() {
         this.mDownloadStatus = DownloadStatus.IDLE;
         this.mUrl = null;
-        this.mData = null;
+        this.jsonData = null;
     }
 
-    public String getmData() {
-        return mData;
+    public String getJsonData() {
+        return jsonData;
     }
 
     public DownloadStatus getmDownloadStatus() {
@@ -48,6 +48,10 @@ public class FlickrData {
         mDownloadStatus = DownloadStatus.PROCESSING;
 
         new DownloadFlickrData().execute(mUrl);
+    }
+
+    public void setmUrl(String mUrl) {
+        this.mUrl = mUrl;
     }
 
     public class DownloadFlickrData extends AsyncTask<String, Void, String> {
@@ -103,8 +107,8 @@ public class FlickrData {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            mData = s;
-            if (mData == null) {
+            jsonData = s;
+            if (jsonData == null) {
                 if (mUrl == null) {
                     mDownloadStatus = DownloadStatus.NOT_INITIALISED;
                 } else {

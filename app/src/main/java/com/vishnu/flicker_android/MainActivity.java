@@ -16,8 +16,11 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-        FlickrData flickrData = new FlickrData(flickrAPIEndPoint);
-        flickrData.ConnectAndDownloadData();
+        //FlickrData flickrData = new FlickrData(flickrAPIEndPoint);
+        //flickrData.ConnectAndDownloadData();
+
+        FlickrJsonDataParser flickrJsonDataParser = new FlickrJsonDataParser("android,lollipop", true);
+        flickrJsonDataParser.execute();
 
     }
 
