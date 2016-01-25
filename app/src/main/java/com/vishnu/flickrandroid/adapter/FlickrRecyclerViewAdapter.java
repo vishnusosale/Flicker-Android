@@ -1,8 +1,14 @@
-package com.vishnu.flicker_android;
+package com.vishnu.flickrandroid.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+
+import com.vishnu.flickrandroid.model.Picture;
+import com.vishnu.flickrandroid.R;
+import com.vishnu.flickrandroid.view.ViewHolder;
 
 import java.util.List;
 
@@ -20,13 +26,14 @@ public class FlickrRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> 
     }
 
 
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, null);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
 
-        return null;
+
     }
 
     @Override
@@ -36,6 +43,6 @@ public class FlickrRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return 0;
+        return (null != pictureList ? pictureList.size() : 0);
     }
 }

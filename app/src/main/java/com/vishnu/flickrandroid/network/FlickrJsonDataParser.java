@@ -1,7 +1,9 @@
-package com.vishnu.flicker_android;
+package com.vishnu.flickrandroid.network;
 
 import android.net.Uri;
 import android.util.Log;
+
+import com.vishnu.flickrandroid.model.Picture;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -91,10 +93,14 @@ public class FlickrJsonDataParser extends FlickrData {
         }
     }
 
+    public List<Picture> getPictureList() {
+        return pictureList;
+    }
+
     public class DownloadJsonData extends DownloadFlickrData {
         @Override
         protected String doInBackground(String... params) {
-            return super.doInBackground(params);
+            return super.doInBackground(destinationUri.toString());
         }
 
         @Override
@@ -102,7 +108,6 @@ public class FlickrJsonDataParser extends FlickrData {
             super.onPostExecute(s);
             processResults();
         }
-
     }
 }
 

@@ -1,9 +1,11 @@
-package com.vishnu.flicker_android;
+package com.vishnu.flickrandroid.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.vishnu.flickrandroid.R;
 
 /**
  * Created by vishnu on 25/1/16.

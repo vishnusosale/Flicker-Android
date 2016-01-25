@@ -1,4 +1,4 @@
-package com.vishnu.flicker_android;
+package com.vishnu.flickrandroid.network;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -19,6 +19,7 @@ enum DownloadStatus {
 
 
 public class FlickrData {
+
 
     private final String TAG = getClass().getSimpleName();
     private String mUrl;

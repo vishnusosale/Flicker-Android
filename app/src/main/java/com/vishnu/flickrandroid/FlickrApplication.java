@@ -1,4 +1,4 @@
-package com.vishnu.flicker_android;
+package com.vishnu.flickrandroid;
 
 import android.app.Application;
 

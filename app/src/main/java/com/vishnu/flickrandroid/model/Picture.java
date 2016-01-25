@@ -1,4 +1,4 @@
-package com.vishnu.flicker_android;
+package com.vishnu.flickrandroid.model;
 
 /**
  * Created by vishnu on 22/1/16.
