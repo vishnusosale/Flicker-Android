@@ -17,7 +17,9 @@ enum DownloadStatus {
     IDLE, PROCESSING, NOT_INITIALISED, FAILED_OR_EMPTY, OK
 }
 
-
+/*
+    FlickrData connects to Flickr services api and downloads the response in JSON format.
+ */
 public class FlickrData {
 
 
@@ -55,6 +57,9 @@ public class FlickrData {
         this.mUrl = mUrl;
     }
 
+    /*
+        DownloadFlickrData will download data from Flickr Services api and returns the response
+     */
     public class DownloadFlickrData extends AsyncTask<String, Void, String> {
 
         @Override

@@ -1,13 +1,14 @@
 package com.vishnu.flickrandroid.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.vishnu.flickrandroid.model.Picture;
 import com.vishnu.flickrandroid.R;
+import com.vishnu.flickrandroid.model.Picture;
 import com.vishnu.flickrandroid.view.ViewHolder;
 
 import java.util.List;
@@ -38,6 +39,12 @@ public class FlickrRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+
+        Picture picture = pictureList.get(position);
+        Uri uri = Uri.parse(picture.getmImage());
+        holder.getThumbnail().setImageURI(uri);
+
+        holder.getTitle().setText(picture.getmTitle());
 
     }
 

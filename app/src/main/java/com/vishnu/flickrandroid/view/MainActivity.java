@@ -2,13 +2,14 @@ package com.vishnu.flickrandroid.view;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.vishnu.flickrandroid.model.Picture;
 import com.vishnu.flickrandroid.R;
 import com.vishnu.flickrandroid.adapter.FlickrRecyclerViewAdapter;
+import com.vishnu.flickrandroid.model.Picture;
 import com.vishnu.flickrandroid.network.FlickrJsonDataParser;
 
 import java.util.ArrayList;
@@ -28,11 +29,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //FlickrData flickrData = new FlickrData(flickrAPIEndPoint);
-        //flickrData.ConnectAndDownloadData();
-
-        FlickrJsonDataParser flickrJsonDataParser = new FlickrJsonDataParser("android,lollipop", true);
+        PicturesProcessor flickrJsonDataParser = new PicturesProcessor("mountain", true);
         flickrJsonDataParser.execute();
 
     }
@@ -59,9 +59,12 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public class picturesProcessor extends FlickrJsonDataParser {
+    /*
+        class PicturesProcessor will use the data from the downloaded data and update the UI.
+     */
+    public class PicturesProcessor extends FlickrJsonDataParser {
 
-        public picturesProcessor(String searchCriteria, boolean matchAll) {
+        public PicturesProcessor(String searchCriteria, boolean matchAll) {
             super(searchCriteria, matchAll);
         }
 

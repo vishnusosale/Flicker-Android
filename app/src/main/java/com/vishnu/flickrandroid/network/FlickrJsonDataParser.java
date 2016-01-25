@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * Created by vishnu on 22/1/16.
  */
+
 public class FlickrJsonDataParser extends FlickrData {
 
     private final String TAG = getClass().getSimpleName();
@@ -30,6 +31,9 @@ public class FlickrJsonDataParser extends FlickrData {
         createAndUpdateUri(searchCriteria, matchAll);
     }
 
+    /*
+        The following function creates a URL with required parameters.
+     */
     public boolean createAndUpdateUri(String searchCriteria, boolean matchAll) {
 
         final String FLICKR_BASE_URL = "https://api.flickr.com/services/feeds/photos_public.gne";
@@ -48,10 +52,18 @@ public class FlickrJsonDataParser extends FlickrData {
         return destinationUri != null;
     }
 
+    /*
+        Function is used to execute the AsyncTask to download the Flickr JSON data.
+     */
     public void execute() {
         setmUrl(destinationUri.toString());
         new DownloadJsonData().execute(destinationUri.toString());
     }
+
+    /*
+        Following function processes the results which are returned by the AsyncTask
+        and adds results ton ArrayList
+     */
 
     public void processResults() {
         if (getmDownloadStatus() != DownloadStatus.OK) {
@@ -96,6 +108,14 @@ public class FlickrJsonDataParser extends FlickrData {
     public List<Picture> getPictureList() {
         return pictureList;
     }
+
+
+    /*
+        DownloadJsonData extends from DownLoadFlickrData which is an AsyncTask.
+        We pass the API endpoint in the super doInBackground().
+        After finishing downloading the JSON data, the results are processed
+        and are used to update the views.
+     */
 
     public class DownloadJsonData extends DownloadFlickrData {
         @Override

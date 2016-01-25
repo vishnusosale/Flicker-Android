@@ -22,4 +22,12 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         this.thumbnail = (ImageView) itemView.findViewById(R.id.thumbnail);
         this.title = (TextView) itemView.findViewById(R.id.title);
     }
+
+    public ImageView getThumbnail() {
+        return thumbnail;
+    }
+
+    public TextView getTitle() {
+        return title;
+    }
 }
