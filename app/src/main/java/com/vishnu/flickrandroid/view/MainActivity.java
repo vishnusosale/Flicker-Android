@@ -1,7 +1,9 @@
 package com.vishnu.flickrandroid.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -34,9 +36,23 @@ public class MainActivity extends BaseActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        PicturesProcessor flickrJsonDataParser = new PicturesProcessor("mountain", true);
-        flickrJsonDataParser.execute();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        String searchQuery = getSavedSearchPreferences(FLICKR_SEARCH_QUERY);
+
+        if (searchQuery.length() > 0) {
+            PicturesProcessor flickrJsonDataParser = new PicturesProcessor(searchQuery, true);
+            flickrJsonDataParser.execute();
+        }
+    }
+
+    private String getSavedSearchPreferences(String key) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        return sharedPreferences.getString(key, "");
     }
 
     @Override
@@ -90,6 +106,4 @@ public class MainActivity extends BaseActivity {
             }
         }
     }
-
-
 }

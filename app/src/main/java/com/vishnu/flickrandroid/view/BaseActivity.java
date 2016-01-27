@@ -11,6 +11,7 @@ import com.vishnu.flickrandroid.R;
 public class BaseActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    public final static String FLICKR_SEARCH_QUERY = "FLICKR_SEARCH_QUERY";
 
     protected Toolbar initToolBarWithHomeEnabled() {
         initToolBar();

@@ -13,7 +13,7 @@ import com.vishnu.flickrandroid.R;
 
 public class SearchActivity extends BaseActivity {
 
-    private final static String FLICKR_SEARCH_QUERY = "FLICKR_SEARCH_QUERY";
+
     SearchView mSearchView;
 
     @Override
@@ -45,7 +45,7 @@ public class SearchActivity extends BaseActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 SharedPreferences typedSearchKeys = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                typedSearchKeys.edit().putString(FLICKR_SEARCH_QUERY, query).apply();
+                typedSearchKeys.edit().putString(FLICKR_SEARCH_QUERY, query).commit();
                 mSearchView.clearFocus();
                 finish();
                 return true;
