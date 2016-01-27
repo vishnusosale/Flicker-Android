@@ -12,6 +12,16 @@ public class BaseActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
+    protected Toolbar initToolBarWithHomeEnabled() {
+        initToolBar();
+        if (toolbar != null) {
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            }
+        }
+        return toolbar;
+    }
+
     protected Toolbar initToolBar() {
         if (toolbar == null) {
             toolbar = (Toolbar) findViewById(R.id.toolbar);
