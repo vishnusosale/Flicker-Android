@@ -5,4 +5,29 @@
         <!-- Customize your theme here. -->
     </style>
 
+
+    <style name="BaseAppTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/primary_background_color</item>
+        <item name="colorPrimaryDark">@color/secondary_background_color</item>
+        <item name="colorAccent">@color/background_accent_color</item>
+    </style>
+
+    <style name="FlickrTheme" parent="BaseAppTheme">
+        <item name="colorAccent">@color/background_accent_color</item>
+    </style>
+
+    <style name="FlickToolBarTheme" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/primary_background_color</item>
+    </style>
+
+    <style name="actionBarPopOverLay">
+        <item name="android:textColorPrimary">@color/primary_text_color</item>
+        <item name="android:actionMenuTextColor">@color/primary_text_color</item>
+        <item name="android:background">@color/md_white_1000</item>
+    </style>
+
+    <style name="actionBarTitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>
