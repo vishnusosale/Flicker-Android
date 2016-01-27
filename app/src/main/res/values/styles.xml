@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
 
@@ -10,10 +10,15 @@
         <item name="colorPrimary">@color/primary_background_color</item>
         <item name="colorPrimaryDark">@color/secondary_background_color</item>
         <item name="colorAccent">@color/background_accent_color</item>
+        <item name="android:actionOverflowButtonStyle">@style/OverFlow</item>
+    </style>
+
+    <style name="OverFlow" parent="Base.Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_overflow_white</item>
     </style>
 
     <style name="FlickrTheme" parent="BaseAppTheme">
-        <item name="colorAccent">@color/background_accent_color</item>
+        <item name="android:colorBackground">@color/md_white_1000</item>
     </style>
 
     <style name="FlickToolBarTheme" parent="Widget.AppCompat.Toolbar">
@@ -27,7 +32,7 @@
     </style>
 
     <style name="actionBarTitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:textColor">@color/md_white_1000</item>
         <item name="android:textSize">18sp</item>
     </style>
 </resources>

@@ -1,4 +1,5 @@
 <resources>
 
-    <style name="FlickrTheme" parent="BaseAppTheme"/>
+    <style name="FlickrTheme" parent="BaseAppTheme">
+    </style>
 </resources>
