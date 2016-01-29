@@ -31,8 +31,7 @@ public class FlickrRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> 
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, null);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+        return new ViewHolder(view);
 
 
     }
@@ -51,5 +50,10 @@ public class FlickrRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder> 
     @Override
     public int getItemCount() {
         return (null != pictureList ? pictureList.size() : 0);
+    }
+
+    public void loadNewData(List<Picture> pictures) {
+        this.pictureList = pictures;
+        notifyDataSetChanged();
     }
 }

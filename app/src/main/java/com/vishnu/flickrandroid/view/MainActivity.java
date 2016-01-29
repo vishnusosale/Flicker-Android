@@ -33,8 +33,13 @@ public class MainActivity extends BaseActivity {
 
         initToolBar();
 
+        flickrRecyclerViewAdapter = new FlickrRecyclerViewAdapter(new ArrayList<Picture>(),
+                MainActivity.this);
+
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mRecyclerView.setAdapter(flickrRecyclerViewAdapter);
 
     }
 
@@ -101,8 +106,7 @@ public class MainActivity extends BaseActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                flickrRecyclerViewAdapter = new FlickrRecyclerViewAdapter(getPictureList(), MainActivity.this);
-                mRecyclerView.setAdapter(flickrRecyclerViewAdapter);
+               flickrRecyclerViewAdapter.loadNewData(getPictureList());
             }
         }
     }
